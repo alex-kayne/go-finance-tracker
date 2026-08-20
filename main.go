@@ -3,20 +3,19 @@ package main
 import "fmt"
 
 func printTransactions(transactions []int) {
-	fmt.Printf("Transactions: %d\n", transactions)
+	fmt.Printf("Transactions: %v\n", transactions)
 	fmt.Printf("First transaction: %d\n", transactions[0])
 	fmt.Printf("Last transaction: %d\n", transactions[len(transactions)-1])
 	fmt.Printf("Transactions count: %d\n", len(transactions))
 }
 
-func getBalance(transactions []int) {
+func getBalance(transactions []int) int {
 	balance := 0
 
 	for i := 0; i < len(transactions); i++ {
 		balance += transactions[i]
 	}
-
-	fmt.Printf("Balance: %d\n", balance)
+	return balance
 }
 
 func main() {
@@ -27,9 +26,9 @@ func main() {
 	transactions[3] = 2000
 	transactions[4] = -500
 
-	transactions[3] = 4085
+	transactions[2] = 4085
 
 	printTransactions(transactions[:])
 
-	getBalance(transactions[:])
+	fmt.Printf("Balance: %d\n", getBalance(transactions[:]))
 }
