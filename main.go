@@ -28,7 +28,18 @@ func main() {
 
 	transactions[2] = 4085
 
+	partialTransactions := transactions[1:4]
+
+	fmt.Printf("Partial Transactions cap: %d\n", cap(partialTransactions))
+	fmt.Printf("Partial Transactions len: %d\n", len(partialTransactions))
+
+	//изменится потому что, слайс хранит адрес изначальной ячейки в памяти
+	partialTransactions[0] = 9999
 	printTransactions(transactions[:])
+
+	allTransactions := transactions[:]
+
+	fmt.Printf("%T\n", allTransactions)
 
 	fmt.Printf("Balance: %d\n", getBalance(transactions[:]))
 }
