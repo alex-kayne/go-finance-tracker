@@ -53,4 +53,16 @@ func main() {
 	fmt.Printf("%T\n", allTransactions)
 
 	fmt.Printf("Balance: %d\n", getBalance(transactions[:]))
+
+	fmt.Printf("----------------------\n")
+
+	newTransactions := transactions[:]
+	newTransactions = append(newTransactions, 48184)
+	fmt.Printf("New Transactions cap: %d\n", cap(newTransactions))
+	fmt.Printf("New Transactions len: %d\n", len(newTransactions))
+
+	newTransactions = append(newTransactions, 3241515)
+	fmt.Printf("New Transactions cap: %d\n", cap(newTransactions))
+	fmt.Printf("New Transactions len: %d\n", len(newTransactions))
+
 }
