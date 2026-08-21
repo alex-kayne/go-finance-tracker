@@ -37,6 +37,17 @@ func main() {
 	partialTransactions[0] = 9999
 	printTransactions(transactions[:])
 
+	newPartialTransactions := transactions[1:3]
+
+	fmt.Printf("New Partial Transactions cap: %d\n", cap(newPartialTransactions))
+	fmt.Printf("New Partial Transactions len: %d\n", len(newPartialTransactions))
+
+	partialTransactions[1] = -9999
+
+	fmt.Printf("New Partial Transactions: %d\n", newPartialTransactions)
+	fmt.Printf("Transactions: %d\n", transactions)
+	fmt.Printf("Partial Transactions: %d\n", partialTransactions)
+
 	allTransactions := transactions[:]
 
 	fmt.Printf("%T\n", allTransactions)
