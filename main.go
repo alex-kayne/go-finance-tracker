@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-func inputTransactions() (transactions []float32) {
-	var input float32
+func inputTransactions() (transactions []int) {
+	var input int
 	for {
 		fmt.Println("Enter amount of transactions or 0 if you want to exit")
 		_, err := fmt.Scan(&input)
@@ -20,17 +20,21 @@ func inputTransactions() (transactions []float32) {
 	return transactions
 }
 
-func printTransactions(transactions []float32) {
-	fmt.Printf("Transactions list: %v\n", transactions)
-	var sum float32
+func calculateSum(transactions []int) (transactionsSum int) {
 	for _, val := range transactions {
-		sum += val
+		transactionsSum += val
 	}
+	return transactionsSum
+}
+
+func printTransactions(transactions []int, transactionsSum int) {
+	fmt.Printf("Transactions list: %v\n", transactions)
 	fmt.Printf("Len of transactions: %d\n", len(transactions))
-	fmt.Printf("Sum of transactions: %f\n", sum)
+	fmt.Printf("Sum of transactions: %d\n", transactionsSum)
 }
 
 func main() {
 	transactions := inputTransactions()
-	printTransactions(transactions)
+	transactionsSum := calculateSum(transactions)
+	printTransactions(transactions, transactionsSum)
 }
