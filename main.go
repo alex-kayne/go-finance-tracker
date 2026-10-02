@@ -20,7 +20,7 @@ func inputTransactions() (transactions []int) {
 	return transactions
 }
 
-func calculateSum(transactions []int) (int, int, int) {
+func calculateStatistics(transactions []int) (int, int, int) {
 	income := 0
 	outcome := 0
 	transactionsSum := 0
@@ -45,6 +45,6 @@ func printTransactions(income int, outcome int, transactions []int, transactions
 
 func main() {
 	transactions := inputTransactions()
-	income, outcome, transactionsSum := calculateSum(transactions)
+	income, outcome, transactionsSum := calculateStatistics(transactions)
 	printTransactions(income, outcome, transactions, transactionsSum)
 }
