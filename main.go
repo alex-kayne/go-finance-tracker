@@ -20,21 +20,31 @@ func inputTransactions() (transactions []int) {
 	return transactions
 }
 
-func calculateSum(transactions []int) (transactionsSum int) {
+func calculateSum(transactions []int) (int, int, int) {
+	income := 0
+	outcome := 0
+	transactionsSum := 0
 	for _, val := range transactions {
+		if val < 0 {
+			outcome += val
+		} else {
+			income += val
+		}
 		transactionsSum += val
 	}
-	return transactionsSum
+	return income, outcome, transactionsSum
 }
 
-func printTransactions(transactions []int, transactionsSum int) {
+func printTransactions(income int, outcome int, transactions []int, transactionsSum int) {
 	fmt.Printf("Transactions list: %v\n", transactions)
 	fmt.Printf("Len of transactions: %d\n", len(transactions))
 	fmt.Printf("Sum of transactions: %d\n", transactionsSum)
+	fmt.Printf("Income: %d\n", income)
+	fmt.Printf("Outcome: %d\n", outcome)
 }
 
 func main() {
 	transactions := inputTransactions()
-	transactionsSum := calculateSum(transactions)
-	printTransactions(transactions, transactionsSum)
+	income, outcome, transactionsSum := calculateSum(transactions)
+	printTransactions(income, outcome, transactions, transactionsSum)
 }
